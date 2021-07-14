@@ -1,0 +1,9 @@
+extends ../layout
+
+block layout-content
+    h1.Banner PET SHOP
+    div.PetPage
+        include ../mixins/petProfile
+        include ../mixins/petList
+        +petProfile(petProfile)
+        +petList(pets)

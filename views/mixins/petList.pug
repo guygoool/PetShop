@@ -1,0 +1,8 @@
+mixin petList(pets)
+    .PetList.Card
+        h1= "More Pets.."
+        each pet in pets
+            a(href="/" + pet.id)
+                .PetSmallProfile.Card
+                    image(src=pet.image)
+                    h3= pet.name

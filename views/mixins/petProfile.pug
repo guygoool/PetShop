@@ -1,0 +1,20 @@
+mixin petProfile(pet)
+    script.
+        function expand(target)
+        {
+            const descriptionElement = document.getElementById("PetProfileDescription");
+            const descriptionHeight = window.getComputedStyle(target.parentNode.previousElementSibling).height;
+            const descriptionElementHeight = window.getComputedStyle(descriptionElement).height;
+
+            target.parentElement.style.display = "none";
+            descriptionElement.style.height = descriptionHeight > descriptionElementHeight ? descriptionHeight : descriptionElementHeight;
+        }
+
+    .PetProfile.Card
+        image(src=pet.image)
+        .About
+            h1= pet.name
+            #PetProfileDescription.Description
+                p= pet.description
+                .ReadMore
+                    a(onClick='expand(this)') Read More
